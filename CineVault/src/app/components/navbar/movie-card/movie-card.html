@@ -1,4 +1,4 @@
-<a class="movie-card" [routerLink]="['/detail', movie.id]">
+<a [routerLink]="['/detail', movie.id]">
     <div class="poster">
         <img [src]="getPosterUrl(movie.poster_path)" [alt]="movie.title" />
         <span class="rating">
