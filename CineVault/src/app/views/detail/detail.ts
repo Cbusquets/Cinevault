@@ -1,13 +1,13 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
-import { Location, DecimalPipe, DatePipe, NgFor } from '@angular/common';
+import { Location, DecimalPipe, DatePipe } from '@angular/common';
 import { MovieService } from '../../services/movie';
 import { FavoritesService, Movie } from '../../services/favorites';
 
 @Component({
   selector: 'app-detail',
   standalone: true,
-  imports: [DecimalPipe, DatePipe, NgFor],
+  imports: [DecimalPipe, DatePipe],
   templateUrl: './detail.html',
   styleUrl: './detail.scss'
 })

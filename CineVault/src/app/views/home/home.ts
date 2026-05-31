@@ -1,14 +1,13 @@
 import { Component, OnInit } from '@angular/core';
-import { RouterLink } from '@angular/router';
 import { FormsModule } from '@angular/forms';
-import { DecimalPipe, DatePipe } from '@angular/common';
 import { MovieService } from '../../services/movie';
 import { FavoritesService, Movie } from '../../services/favorites';
+import { MovieCardComponent } from '../../components/navbar/movie-card/movie-card';
 
 @Component({
   selector: 'app-home',
   standalone: true,
-  imports: [RouterLink, FormsModule, DecimalPipe, DatePipe],
+  imports: [ FormsModule, MovieCardComponent],
   templateUrl: './home.html',
   styleUrl: './home.scss'
 })
