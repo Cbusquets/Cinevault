@@ -13,6 +13,7 @@ import { FormsModule } from '@angular/forms';
   styleUrl: './favorites.scss',
 })
 export class Favorites {
+  allFavorites: Movie[] = [];
   favorites: Movie[] = [];
   searchedFavorites: Movie[] = [];
   searchQuery: string = '';
@@ -32,7 +33,8 @@ export class Favorites {
       return;
     }
     this.loading = false;
-    this.searchedFavorites = this.favorites.filter(m =>
+    this.allFavorites = this.favoritesService.getFavorites();
+    this.favorites = this.allFavorites.filter(m =>
     m.title.toLowerCase().includes(this.searchQuery.toLowerCase())
     );
   }
