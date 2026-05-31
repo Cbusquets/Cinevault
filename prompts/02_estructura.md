@@ -23,9 +23,8 @@ CineVault/
 │       └── services/         # Llamadas a API y LocalStorage
 │           ├── movie.ts
 │           └── favorites.ts
-├── docker/                   # Dockerfile y nginx
 ├── prompts/                  # Registro de uso de IA
-├── tests/                    # Pruebas unitarias e integración
+├── diagrams/                 # Diagramas y mockups
 └── README.md
 ```
 
