@@ -1,9 +1,53 @@
 import { Component } from '@angular/core';
+import { FavoritesService, Movie } from '../../services/favorites';
+import { MovieService } from '../../services/movie';
+import { DatePipe, DecimalPipe } from '@angular/common'; 
+import { RouterLink } from '@angular/router';
+import { FormsModule } from '@angular/forms';
 
 @Component({
   selector: 'app-favorites',
-  imports: [],
+  standalone: true,
+  imports: [DatePipe, DecimalPipe, RouterLink, FormsModule],
   templateUrl: './favorites.html',
   styleUrl: './favorites.scss',
 })
-export class Favorites {}
+export class Favorites {
+  favorites: Movie[] = [];
+  searchedFavorites: Movie[] = [];
+  searchQuery: string = '';
+  loading: boolean = false;
+
+  constructor(
+    private favoritesService: FavoritesService
+  ) {}
+
+  ngOnInit(): void {
+    this.loadFavorites();
+  }
+
+  search(): void {
+    if (!this.searchQuery.trim()) {
+      this.loadFavorites();
+      return;
+    }
+    this.loading = false;
+    this.searchedFavorites = this.favorites.filter(m =>
+    m.title.toLowerCase().includes(this.searchQuery.toLowerCase())
+    );
+  }
+
+  loadFavorites(){
+    this.loading = false;
+    this.favorites = this.favoritesService.getFavorites();
+  }
+
+  isFavorite(id: number) : boolean{
+    return this.favoritesService.isFavorite(id);
+  }
+
+  getPosterUrl(path: string): string {
+    return path ? `https://image.tmdb.org/t/p/w500${path}` : 'assets/no-poster.png';
+  }
+
+}

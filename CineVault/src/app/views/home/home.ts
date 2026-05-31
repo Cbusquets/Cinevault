@@ -55,6 +55,10 @@ export class HomeComponent implements OnInit {
   isFavorite(id: number): boolean {
     return this.favoritesService.isFavorite(id);
   }
+  
+  toggleFavorite(movie: Movie): void{
+    this.toggleFavorite(movie);
+  }
 
   getPosterUrl(path: string): string {
     return path ? `https://image.tmdb.org/t/p/w500${path}` : 'assets/no-poster.png';

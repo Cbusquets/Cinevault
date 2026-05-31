@@ -1,1 +1,66 @@
-<p>detail works!</p>
+@if (loading) {
+  <div class="loading">
+    <i class="ti ti-loader-2" aria-hidden="true"></i> Cargando...
+  </div>
+}
+@if (movie) {
+  <div class="detail">
+
+    <div class="backdrop" [style.backgroundImage]="'url(' + getBackdropUrl(movie.backdrop_path) + ')'">
+      <div class="backdrop-overlay"></div>
+      <button class="btn-back" (click)="goBack()">
+        <i class="ti ti-arrow-left"></i>
+      </button>
+      <div class="backdrop-info">
+        <h1>{{ movie.title }}</h1>
+        @if (movie.tagline) {
+          <p class="tagline">{{ movie.tagline }}</p>
+        }
+      </div>
+    </div>
+
+    <div class="content">
+
+      <div class="meta">
+        <span class="rating">
+          <i class="ti ti-star-filled"></i>
+          {{ movie.vote_average | number:'1.1-1' }}
+        </span>
+        <span class="year">
+          <i class="ti ti-calendar"></i>
+          {{ movie.release_date | date:'yyyy' }}
+        </span>
+        @if (movie.runtime) {
+          <span class="runtime">
+            <i class="ti ti-clock"></i>
+            {{ movie.runtime }} min
+          </span>
+        }
+      </div>
+
+      <div class="genres">
+        @for (genre of movie.genres; track genre.id) {
+          <span class="genre-tag">{{ genre.name }}</span>
+        }
+      </div>
+
+      <div class="overview">
+        <h2>Sinopsis</h2>
+        <p>{{ movie.overview || 'Sin sinopsis disponible.' }}</p>
+      </div>
+
+      <div class="actions">
+        @if (trailerKey) {
+          <button class="btn btn-trailer" (click)="openTrailer()">
+            <i class="ti ti-player-play"></i> Ver trailer
+          </button>
+        }
+        <button class="btn btn-favorite" (click)="toggleFavorite()">
+          <i [class]="isFavorite() ? 'ti ti-heart-filled' : 'ti ti-heart'"></i>
+          {{ isFavorite() ? 'Quitar de favoritos' : 'Agregar a favoritos' }}
+        </button>
+      </div>
+
+    </div>
+  </div>
+}

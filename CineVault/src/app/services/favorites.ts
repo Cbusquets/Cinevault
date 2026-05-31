@@ -33,6 +33,16 @@ export class FavoritesService {
     localStorage.setItem(this.key, JSON.stringify(favs));
   }
 
+  toggleFavorite(movie: Movie): void {
+    if(this.isFavorite(movie.id)){
+      this.removeFavorite(movie.id);
+    }
+    else{
+      this.addFavorite(movie);
+    }
+
+  }
+
   isFavorite(id: number): boolean {
     return this.getFavorites().some(m => m.id === id);
   }
