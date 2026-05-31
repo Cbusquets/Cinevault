@@ -25,19 +25,9 @@
       <h2>{{ searchQuery ? 'Resultados' : 'Populares ahora' }}</h2>
       <div class="movies-grid">
         @for (movie of movies; track movie.id) {
-          <a class="movie-card" [routerLink]="['/detail', movie.id]">
-            <div class="poster">
-              <img [src]="getPosterUrl(movie.poster_path)" [alt]="movie.title" />
-              <span class="rating">
-                <i class="ti ti-star" aria-hidden="true"></i>
-                {{ movie.vote_average | number:'1.1-1' }}
-              </span>
-            </div>
-            <div class="info">
-              <h3>{{ movie.title }}</h3>
-              <span>{{ movie.release_date | date:'yyyy' }}</span>
-            </div>
-          </a>
+          <app-movie-card
+            [movie]="movie"
+            [favorite] = "isFavorite(movie.id)"/>
         }
       </div>
     </div>
