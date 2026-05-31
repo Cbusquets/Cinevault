@@ -1,16 +1,18 @@
-.movie-card {
+:host {
   background: #1c1c26;
   border: 1px solid #2a2a35;
   border-radius: 8px;
   overflow: hidden;
-  text-decoration: none;
-  color: #fff;
   transition: transform 0.2s, border-color 0.2s;
-
+  isolation: isolate;
   &:hover {
-    transform: translateY(-4px);
+    transform: translateY(-3px);
     border-color: #e5a800;
   }
+a {
+  text-decoration: none;
+  color: #fff;
+}
 
   .poster {
     position: relative;
