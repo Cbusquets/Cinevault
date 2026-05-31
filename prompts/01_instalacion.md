@@ -22,10 +22,7 @@ ng new CineVault --routing --style=scss
 
 Instalar dependencias del proyecto:
 ```bash
-npm install bootstrap
-npm install @tabler/icons-webfont
-npm install zone.js
-```
+npm install
 
 Agregar en `src/styles.scss`:
 ```scss
