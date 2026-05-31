@@ -15,6 +15,8 @@ export class HomeComponent implements OnInit {
   movies: Movie[] = [];
   searchQuery: string = '';
   loading: boolean = false;
+  isSearching: boolean = false;
+
 
   constructor(
     private movieService: MovieService,
@@ -37,19 +39,21 @@ export class HomeComponent implements OnInit {
   }
 
   search(): void {
-    if (!this.searchQuery.trim()) {
-      this.loadPopular();
-      return;
-    }
-    this.loading = true;
-    this.movieService.searchMovies(this.searchQuery).subscribe({
-      next: (res) => {
-        this.movies = res.results;
-        this.loading = false;
-      },
-      error: () => this.loading = false
-    });
+  if (!this.searchQuery.trim()) {
+    this.isSearching = false;
+    this.loadPopular();
+    return;
   }
+  this.isSearching = true;
+  this.loading = true;
+  this.movieService.searchMovies(this.searchQuery).subscribe({
+    next: (res) => {
+      this.movies = res.results;
+      this.loading = false;
+    },
+    error: () => this.loading = false
+  });
+}
 
   isFavorite(id: number): boolean {
     return this.favoritesService.isFavorite(id);
