@@ -1,7 +1,7 @@
 <div class="home">
   <div class="hero">
     <h1>Peliculas favoritas</h1>
-    <p>Buscá por título, explorá por género</p>
+    <p>Tus películas guardadas</p>
     <div class="search-box">
       <i class="ti ti-search" aria-hidden="true"></i>
       <input
@@ -22,9 +22,9 @@
 
   @if (!loading) {
     <div class="section">
-      <h2>{{ searchQuery ? 'Resultados' : 'Populares ahora' }}</h2>
+      <h2>{{ isSearching ? 'Resultados' : 'Mis favoritos' }}</h2>
       <div class="movies-grid">
-        @for (movie of favorites; track movie.id) {
+        @for (movie of isSearching ? searchedFavorites : favorites; track movie.id) {
           <a class="movie-card" [routerLink]="['/detail', movie.id]">
             <div class="poster">
               <img [src]="getPosterUrl(movie.poster_path)" [alt]="movie.title" />

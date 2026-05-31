@@ -18,6 +18,7 @@ export class Favorites {
   searchedFavorites: Movie[] = [];
   searchQuery: string = '';
   loading: boolean = false;
+  isSearching: boolean = false;
 
   constructor(
     private favoritesService: FavoritesService
@@ -29,15 +30,15 @@ export class Favorites {
 
   search(): void {
     if (!this.searchQuery.trim()) {
+      this.isSearching = false;
       this.loadFavorites();
       return;
     }
-    this.loading = false;
-    this.allFavorites = this.favoritesService.getFavorites();
-    this.favorites = this.allFavorites.filter(m =>
-    m.title.toLowerCase().includes(this.searchQuery.toLowerCase())
+    this.isSearching = true;
+    this.searchedFavorites = this.favorites.filter(m =>
+      m.title.toLowerCase().includes(this.searchQuery.toLowerCase())
     );
-  }
+}
 
   loadFavorites(){
     this.loading = false;
