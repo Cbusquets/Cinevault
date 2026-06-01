@@ -4,15 +4,17 @@ import { MovieService } from '../../services/movie';
 import { DatePipe, DecimalPipe } from '@angular/common'; 
 import { RouterLink } from '@angular/router';
 import { FormsModule } from '@angular/forms';
+import { MovieCardComponent } from '../../components/navbar/movie-card/movie-card';
 
 @Component({
   selector: 'app-favorites',
   standalone: true,
-  imports: [DatePipe, DecimalPipe, RouterLink, FormsModule],
+  imports: [DatePipe, DecimalPipe, RouterLink, FormsModule, MovieCardComponent],
   templateUrl: './favorites.html',
   styleUrl: './favorites.scss',
 })
 export class Favorites {
+  allFavorites: Movie[] = [];
   favorites: Movie[] = [];
   searchedFavorites: Movie[] = [];
   searchQuery: string = '';
