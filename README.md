@@ -23,6 +23,19 @@ Aplicación RIA desarrollada con Angular 21 que consume la API de TMDB para busc
 - Node.js 24+
 - Angular CLI 21+
 
+## API References
+
+Todos los endpoints utilizados pertenecen a la [TMDB API](https://developers.themoviedb.org/3).
+
+| Endpoint | Método | Descripción |
+|---|---|---|
+| `/movie/popular` | GET | Películas populares en home |
+| `/search/movie` | GET | Búsqueda por título |
+| `/movie/:id` | GET | Detalle de película |
+| `/movie/:id/videos` | GET | Tráiler en YouTube |
+| `/genre/movie/list` | GET | Lista de géneros |
+| `/discover/movie` | GET | Filtrar por género |
+
 ## Instalación
 
 ```bash
