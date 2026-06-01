@@ -53,40 +53,40 @@ describe('HomeComponent', () => {
     await fixture.whenStable();
   });
 
-  it('should create', () => {
+  it('Componente creado', () => {
     expect(component).toBeTruthy();
   });
 
-  it('should load popular movies on init', () => {
+  it('Carga de datos en ngOnInit(al inicio)', () => {
     expect(movieServiceMock.getPopularMovies).toHaveBeenCalled();
     expect(component.movies.length).toBe(2);
   });
 
-  it('should search movies when search is called', () => {
+  it('Busca peliculas cuando se llama a la funcion', () => {
     component.searchQuery = 'Dune';
     component.search();
     expect(movieServiceMock.searchMovies).toHaveBeenCalledWith('Dune');
   });
 
-  it('should set isSearching to true after search', () => {
+  it('Chequea si la variable isSearching es true despues de buscar', () => {
     component.searchQuery = 'Inception';
     component.search();
     expect(component.isSearching).toBe(true);
   });
 
-  it('should reset to popular when search query is empty', () => {
+  it('Resetea cuando la consulta es vacia', () => {
     component.searchQuery = '';
     component.search();
     expect(component.isSearching).toBe(false);
     expect(movieServiceMock.getPopularMovies).toHaveBeenCalled();
   });
 
-  it('should return correct poster url', () => {
+  it('Chequea si la imagen del poster contiene el url correcto', () => {
     const url = component.getPosterUrl('/test.jpg');
     expect(url).toContain('image.tmdb.org');
   });
 
-  it('should return fallback url when no poster', () => {
+  it('Si el url del poster es vacio, retorna una imagen por defecto', () => {
     const url = component.getPosterUrl('');
     expect(url).toBe('assets/no-poster.png');
   });

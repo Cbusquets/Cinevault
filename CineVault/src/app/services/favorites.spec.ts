@@ -45,12 +45,12 @@ describe('FavoritesService', () => {
     expect(service.getFavorites().length).toBe(0);
   });
 
-  it('should return true if movie is favorite', () => {
+  it('Retorna true si una pelicula es favorita', () => {
     service.addFavorite(mockMovie);
     expect(service.isFavorite(1)).toBe(true);
   });
 
-  it('should return false if movie is not favorite', () => {
+  it('Retorna false si una pelicula no es favorita', () => {
     expect(service.isFavorite(999)).toBe(false)
   });
 });

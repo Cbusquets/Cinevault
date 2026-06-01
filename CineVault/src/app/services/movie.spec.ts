@@ -19,11 +19,11 @@ describe('MovieService', () => {
     httpMock.verify();
   });
 
-  it('should be created', () => {
+  it('Service creado', () => {
     expect(service).toBeTruthy();
   });
 
-  it('should get popular movies', () => {
+  it('Devuelve las peliculas', () => {
     const mockResponse = { results: [{ id: 1, title: 'Dune' }] };
 
     service.getPopularMovies().subscribe(res => {
@@ -38,7 +38,7 @@ describe('MovieService', () => {
     req.flush(mockResponse);
   });
 
-  it('should search movies by query', () => {
+  it('Busca la pelicula por busqueda', () => {
     const mockResponse = { results: [{ id: 2, title: 'Inception' }] };
 
     service.searchMovies('Inception').subscribe(res => {
@@ -52,7 +52,7 @@ describe('MovieService', () => {
     req.flush(mockResponse);
   });
 
-  it('should get movie detail by id', () => {
+  it('Obtiene detalle de pelicula por id', () => {
     const mockMovie = { id: 1, title: 'Dune', overview: 'Una historia épica.' };
 
     service.getMovieDetail(1).subscribe(res => {
@@ -67,7 +67,7 @@ describe('MovieService', () => {
     req.flush(mockMovie);
   });
 
-  it('should get movie videos by id', () => {
+  it('Obtiene video de la pelicula por id', () => {
     const mockVideos = { results: [{ key: 'abc123', type: 'Trailer', site: 'YouTube' }] };
 
     service.getMovieVideos(1).subscribe(res => {
