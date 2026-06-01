@@ -36,5 +36,5 @@ Correr Lighthouse:
 4. Click "Analizar carga de la página"
 
 ## Resultado
-Puntaje en desarrollo: 76
-Puntaje en producción: 95
+Puntaje en desarrollo: 78
+Puntaje en producción: 97
