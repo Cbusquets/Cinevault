@@ -16,6 +16,8 @@ export class HomeComponent implements OnInit {
   searchQuery: string = '';
   loading: boolean = false;
   isSearching: boolean = false;
+  selectedGenreId: number | null = null;  
+  genres: {id: number; name: string}[] = [];
 
 
   constructor(
@@ -25,6 +27,7 @@ export class HomeComponent implements OnInit {
 
   ngOnInit(): void {
     this.loadPopular();
+    this.loadGenres();
   }
 
   loadPopular(): void {
@@ -34,6 +37,27 @@ export class HomeComponent implements OnInit {
         this.movies = res.results;
         this.loading = false;
       },
+      error: () => this.loading = false
+    });
+  }
+
+  loadGenres(): void {
+    this.movieService.getGenres().subscribe({
+      
+      next: (res) => this.genres = res.genres
+    });
+  }
+
+  filterByGenre(genreId: number): void {
+    if (this.selectedGenreId === genreId) {
+      this.selectedGenreId =null;
+      this.loadPopular();
+      return; }
+    this.loading = true;
+    this.isSearching = false;
+    this.selectedGenreId = genreId;
+    this.movieService.getMoviesByGenre(genreId).subscribe({
+      next: (res) => { this.movies = res.results; this.loading = false; },
       error: () => this.loading = false
     });
   }

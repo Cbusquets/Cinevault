@@ -21,6 +21,16 @@
   }
 
   @if (!loading) {
+    <div class="genres">
+      @for (genre of genres; track genre.id) {
+      <button
+        class="genre-btn"
+        [class.active]="selectedGenreId === genre.id"
+        (click)="filterByGenre(genre.id)">
+        {{ genre.name }}
+      </button>
+      }
+    </div>
     <div class="section">
       <h2>{{ isSearching ? 'Resultados' : 'Populares ahora' }}</h2>
       <div class="movies-grid">

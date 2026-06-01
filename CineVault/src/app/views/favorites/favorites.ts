@@ -19,14 +19,38 @@ export class Favorites {
   searchedFavorites: Movie[] = [];
   searchQuery: string = '';
   loading: boolean = false;
+  genres: {id: number; name: string}[] = [];
   isSearching: boolean = false;
+  selectedGenreId: number | null = null;
 
   constructor(
-    private favoritesService: FavoritesService
+    private favoritesService: FavoritesService,
+    private movieService: MovieService
   ) {}
 
   ngOnInit(): void {
     this.loadFavorites();
+    this.loadGenres();
+  }
+
+  loadGenres(): void {
+    this.movieService.getGenres().subscribe({
+      next: (res) => this.genres = res.genres
+    });
+  }
+
+  filterByGenre(genreId: number): void {
+    if (this.selectedGenreId === genreId) { 
+      this.selectedGenreId = null
+      this.loadFavorites(); 
+      return; 
+    }
+    this.loading = true;
+    this.isSearching = false;
+    this.selectedGenreId = genreId;
+    const  allFavorites = this.favoritesService.getFavorites();
+    this.favorites = allFavorites.filter(m => m.genres?.some(g => g.id === genreId));
+    this.loading=false;
   }
 
   search(): void {

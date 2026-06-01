@@ -3,6 +3,37 @@
   min-height: 100vh;
   color: #fff;
 
+  .genres {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    padding: 0 24px 24px;
+    max-width: 1400px;
+    margin: 0 auto;
+
+      .genre-btn {
+        background: #1c1c26;
+        border: 1px solid #2a2a35;
+        border-radius: 20px;
+        color: #9999aa;
+        font-size: 13px;
+        padding: 6px 14px;
+        cursor: pointer;
+        transition: all 0.2s;
+
+        &:hover {
+          border-color: #e5a800;
+          color: #fff;
+        }
+
+        &.active {
+          background: #e5a800;
+          border-color: #e5a800;
+          color: #0f0f13;
+          font-weight: 500;
+        }
+      }
+  }
   .hero {
     background: linear-gradient(to bottom, #1a1a2e, #0f0f13);
     padding: 48px 24px 32px;

@@ -67,7 +67,8 @@ export class DetailComponent implements OnInit{
       poster_path: this.movie.poster_path,
       release_date: this.movie.release_date,
       vote_average: this.movie.vote_average,
-      overview: this.movie.overview     
+      overview: this.movie.overview,
+      genres: this.movie.genres
     }
     this.favoriteService.toggleFavorite(movieData);
   }
