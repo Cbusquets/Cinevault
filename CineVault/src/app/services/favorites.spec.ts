@@ -19,27 +19,27 @@ describe('FavoritesService', () => {
     service = TestBed.inject(FavoritesService);
   });
 
-  it('should be created', () => {
+  it('Deberia crear el componente FavoritesService', () => {
     expect(service).toBeTruthy();
   });
 
-  it('should return empty array when no favorites', () => {
+  it('Deberia devolver un array vacio si no hay favoritos', () => {
     expect(service.getFavorites()).toEqual([]);
   });
 
-  it('should add a favorite', () => {
+  it('Deberia agregar un favorito', () => {
     service.addFavorite(mockMovie);
     expect(service.getFavorites().length).toBe(1);
     expect(service.getFavorites()[0].id).toBe(1);
   });
 
-  it('should not add duplicate favorites', () => {
+  it('No deberia de agregar dos favoritos repetidos', () => {
     service.addFavorite(mockMovie);
     service.addFavorite(mockMovie);
     expect(service.getFavorites().length).toBe(1);
   });
 
-  it('should remove a favorite', () => {
+  it('Deberia remover un favorito', () => {
     service.addFavorite(mockMovie);
     service.removeFavorite(1);
     expect(service.getFavorites().length).toBe(0);

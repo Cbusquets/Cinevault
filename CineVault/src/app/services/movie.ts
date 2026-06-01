@@ -41,4 +41,10 @@ export class MovieService {
       params: { api_key: this.apiKey, language: 'es-ES' }
     });
   }
+  
+  getMoviesByGenre(genreId: number): Observable<any> {
+  return this.http.get(`${this.baseUrl}/discover/movie`, {
+    params: { api_key: this.apiKey, language: 'es-ES', with_genres: genreId.toString() }
+  });
+}
 }
