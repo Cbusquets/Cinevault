@@ -23,7 +23,12 @@ describe('HomeComponent', () => {
   beforeEach(async () => {
     movieServiceMock = {
       getPopularMovies: vi.fn().mockReturnValue(of(mockMovies)),
-      searchMovies: vi.fn().mockReturnValue(of(mockMovies))
+      searchMovies: vi.fn().mockReturnValue(of(mockMovies)),
+      getGenres: vi.fn().mockReturnValue(of({ genres: [
+        { id: 28, name: 'Acción' },
+        { id: 18, name: 'Drama' },
+        { id: 35, name: 'Comedia' }
+      ]}))
     };
 
     favoritesServiceMock = {
