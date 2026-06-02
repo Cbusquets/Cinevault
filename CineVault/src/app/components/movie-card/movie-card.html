@@ -2,8 +2,8 @@
     <div class="poster">
         <img [src]="getPosterUrl(movie.poster_path)" [alt]="movie.title" />
         <span class="rating">
-        <i [class]="favorite ? 'ti ti-star-filled' : 'ti ti-star' " aria-hidden="true" style="cursor: pointer; pointer-events: all;"></i>
-        {{ movie.vote_average | number:'1.1-1' }}
+            <i [class]="favorite ? 'ti ti-star-filled' : 'ti ti-star' " aria-hidden="true" style="cursor: pointer; pointer-events: all;"></i>
+            {{ movie.vote_average | number:'1.1-1' }}
         </span>
     </div>
     <div class="info">
