@@ -1,45 +1,36 @@
 <div class="home">
-  <div class="hero">
-    <h1>Peliculas favoritas</h1>
-    <p>Tus películas guardadas</p>
-    <div class="search-box">
-      <i class="ti ti-search" aria-hidden="true"></i>
-      <input
-        type="text"
-        placeholder="Ej: Inception, Dune..."
-        [(ngModel)]="searchQuery"
-        (keyup.enter)="search()"
-      />
-      <button (click)="search()">Buscar</button>
+    <div class="hero">
+        <h1>Peliculas favoritas</h1>
+        <p>Tus películas guardadas</p>
+        <app-search-bar (searchChange)="search($event)" />
     </div>
-  </div>
 
-  @if (loading) {
-    <div class="loading">
-      <i class="ti ti-loader-2" aria-hidden="true"></i> Cargando...
-    </div>
-  }
+    @if (loading) {
+        <div class="loading">
+            <i class="ti ti-loader-2" aria-hidden="true"></i> Cargando...
+        </div>
+    }
 
-  @if (!loading) {
-    <div class="section">
-      <div class="genres">
-        @for (genre of genres; track genre.id) {
-          <button
-            class="genre-btn"
-            [class.active]="selectedGenreId === genre.id"
-            (click)="filterByGenre(genre.id)">
-            {{ genre.name }}
-          </button>
-        }
-      </div>
-      <h2>{{ isSearching ? 'Resultados' : 'Mis favoritos' }}</h2>
-      <div class="movies-grid">
-        @for (movie of isSearching ? searchedFavorites : favorites; track movie.id) {
-          <app-movie-card
-            [movie]="movie"
-            [favorite] = "isFavorite(movie.id)"/>
-        }
-      </div>
-    </div>
-  }
+    @if (!loading) {
+        <div class="section">
+            <div class="genres">
+                @for (genre of genres; track genre.id) {
+                    <button
+                        class="genre-btn"
+                        [class.active]="selectedGenreId === genre.id"
+                        (click)="filterByGenre(genre.id)">
+                        {{ genre.name }}
+                    </button>
+                }
+            </div>
+            <h2>{{ isSearching ? 'Resultados' : 'Mis favoritos' }}</h2>
+            <div class="movies-grid">
+                @for (movie of isSearching ? searchedFavorites : favorites; track movie.id) {
+                    <app-movie-card
+                        [movie]="movie"
+                        [favorite]="isFavorite(movie.id)" />
+                }
+            </div>
+        </div>
+    }
 </div>
