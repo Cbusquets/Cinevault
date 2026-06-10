@@ -13,7 +13,6 @@
 - Testing: Vitest (integrado en Angular 21)
 
 ## API Key TMDB
-`8be2d58ada9137a8c726e333d56b596a`
 Configurada en `src/environments/environment.ts`
 
 ## Pantallas
