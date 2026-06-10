@@ -3,12 +3,12 @@ import { RouterOutlet } from '@angular/router';
 import { NavbarComponent } from './components/navbar/navbar';
 
 @Component({
-  selector: 'app-root',
-  standalone: true,
-  imports: [RouterOutlet, NavbarComponent],
-  templateUrl: './app.html',
-  styleUrl: './app.scss'
+    selector: 'app-root',
+    standalone: true,
+    imports: [RouterOutlet, NavbarComponent],
+    templateUrl: './app.html',
+    styleUrl: './app.scss'
 })
 export class AppComponent {
-  title = 'CineVault';
+    title = 'CineVault';
 }

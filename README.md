@@ -39,7 +39,7 @@ Todos los endpoints utilizados pertenecen a la [TMDB API](https://developers.the
 ## Instalación
 
 ```bash
-git clone git@github.com:Cbusquets/Cinevault.git
+git clone https://github.com/Cbusquets/Cinevault.git
 cd Cinevault/CineVault
 npm install
 ```

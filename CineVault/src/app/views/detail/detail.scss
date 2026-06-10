@@ -1,181 +1,182 @@
 .loading {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  height: 60vh;
-  color: #aaa;
-  font-size: 1.1rem;
-  gap: 8px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 60vh;
+    color: #aaa;
+    font-size: 1.1rem;
+    gap: 8px;
 
-  i { animation: spin 1s linear infinite; }
+    i { animation: spin 1s linear infinite; }
 }
 
 @keyframes spin {
-  from { transform: rotate(0deg); }
-  to { transform: rotate(360deg); }
+    from { transform: rotate(0deg); }
+    to { transform: rotate(360deg); }
 }
 
 .detail {
-  background: #0f0f0f;
-  min-height: 100vh;
-  color: #f0f0f0;
+    background: #0f0f0f;
+    min-height: 100vh;
+    color: #f0f0f0;
 }
 
 // BACKDROP
 .backdrop {
-  position: relative;
-  height: 420px;
-  background-size: cover;
-  background-position: center top;
+    position: relative;
+    height: 420px;
+    background-size: cover;
+    background-position: center top;
 
-  .backdrop-overlay {
-    position: absolute;
-    inset: 0;
-    background: linear-gradient(
-      to bottom,
-      rgba(0,0,0,0.3) 0%,
-      rgba(15,15,15,1) 100%
-    );
-  }
-
-  .btn-back {
-    position: absolute;
-    top: 16px;
-    left: 16px;
-    background: rgba(0,0,0,0.5);
-    border: none;
-    color: #fff;
-    border-radius: 50%;
-    width: 40px;
-    height: 40px;
-    cursor: pointer;
-    font-size: 1.2rem;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    backdrop-filter: blur(4px);
-    transition: background 0.2s;
-
-    &:hover { background: rgba(255,255,255,0.15); }
-  }
-
-  .backdrop-info {
-    position: absolute;
-    bottom: 24px;
-    left: 24px;
-    right: 24px;
-
-    h1 {
-      font-size: 2rem;
-      font-weight: 700;
-      margin: 0 0 4px;
-      text-shadow: 0 2px 8px rgba(0,0,0,0.8);
+    .backdrop-overlay {
+        position: absolute;
+        inset: 0;
+        background: linear-gradient(
+            to bottom,
+            rgba(0, 0, 0, 0.3) 0%,
+            rgba(15, 15, 15, 1) 100%
+        );
     }
 
-    .tagline {
-      color: #bbb;
-      font-style: italic;
-      margin: 0;
-      font-size: 0.95rem;
+    .btn-back {
+        position: absolute;
+        top: 16px;
+        left: 16px;
+        background: rgba(0, 0, 0, 0.5);
+        border: none;
+        color: #fff;
+        border-radius: 50%;
+        width: 40px;
+        height: 40px;
+        cursor: pointer;
+        font-size: 1.2rem;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        backdrop-filter: blur(4px);
+        transition: background 0.2s;
+
+        &:hover { background: rgba(255, 255, 255, 0.15); }
     }
-  }
+
+    .backdrop-info {
+        position: absolute;
+        bottom: 24px;
+        left: 24px;
+        right: 24px;
+
+        h1 {
+            font-size: 2rem;
+            font-weight: 700;
+            margin: 0 0 4px;
+            text-shadow: 0 2px 8px rgba(0, 0, 0, 0.8);
+        }
+
+        .tagline {
+            color: #bbb;
+            font-style: italic;
+            margin: 0;
+            font-size: 0.95rem;
+        }
+    }
 }
 
 // CONTENIDO
 .content {
-  padding: 24px;
-  max-width: 800px;
-  margin: 0 auto;
+    padding: 24px;
+    max-width: 800px;
+    margin: 0 auto;
 }
 
 .meta {
-  display: flex;
-  gap: 20px;
-  align-items: center;
-  margin-bottom: 16px;
-  flex-wrap: wrap;
-
-  span {
     display: flex;
+    gap: 20px;
     align-items: center;
-    gap: 6px;
-    font-size: 0.95rem;
-    color: #ccc;
-  }
+    margin-bottom: 16px;
+    flex-wrap: wrap;
 
-  .rating {
-    color: #f5c518;
-    font-weight: 600;
-    font-size: 1.05rem;
-    i { color: #f5c518; }
-  }
+    span {
+        display: flex;
+        align-items: center;
+        gap: 6px;
+        font-size: 0.95rem;
+        color: #ccc;
+    }
+
+    .rating {
+        color: #f5c518;
+        font-weight: 600;
+        font-size: 1.05rem;
+
+        i { color: #f5c518; }
+    }
 }
 
 .genres {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 8px;
-  margin-bottom: 24px;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    margin-bottom: 24px;
 
-  .genre-tag {
-    background: #1e1e1e;
-    border: 1px solid #333;
-    border-radius: 20px;
-    padding: 4px 12px;
-    font-size: 0.8rem;
-    color: #ccc;
-  }
+    .genre-tag {
+        background: #1e1e1e;
+        border: 1px solid #333;
+        border-radius: 20px;
+        padding: 4px 12px;
+        font-size: 0.8rem;
+        color: #ccc;
+    }
 }
 
 .overview {
-  margin-bottom: 32px;
+    margin-bottom: 32px;
 
-  h2 {
-    font-size: 1.1rem;
-    font-weight: 600;
-    margin-bottom: 10px;
-    color: #fff;
-  }
+    h2 {
+        font-size: 1.1rem;
+        font-weight: 600;
+        margin-bottom: 10px;
+        color: #fff;
+    }
 
-  p {
-    color: #bbb;
-    line-height: 1.7;
-    font-size: 0.95rem;
-  }
+    p {
+        color: #bbb;
+        line-height: 1.7;
+        font-size: 0.95rem;
+    }
 }
 
 .actions {
-  display: flex;
-  flex-direction: column;
-  gap: 12px;
-
-  .btn {
     display: flex;
-    align-items: center;
-    justify-content: center;
-    gap: 8px;
-    padding: 14px;
-    border-radius: 12px;
-    border: none;
-    font-size: 1rem;
-    font-weight: 600;
-    cursor: pointer;
-    transition: opacity 0.2s, transform 0.1s;
+    flex-direction: column;
+    gap: 12px;
 
-    &:active { transform: scale(0.98); }
-    &:hover { opacity: 0.85; }
-  }
+    .btn {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 8px;
+        padding: 14px;
+        border-radius: 12px;
+        border: none;
+        font-size: 1rem;
+        font-weight: 600;
+        cursor: pointer;
+        transition: opacity 0.2s, transform 0.1s;
 
-  .btn-trailer {
-    background: #e50914;
-    color: #fff;
-  }
+        &:active { transform: scale(0.98); }
+        &:hover { opacity: 0.85; }
+    }
 
-  .btn-favorite {
-    background: #1e1e1e;
-    color: #fff;
-    border: 1px solid #333;
+    .btn-trailer {
+        background: #e50914;
+        color: #fff;
+    }
 
-    i.ti-heart-filled { color: #e50914; }
-  }
+    .btn-favorite {
+        background: #1e1e1e;
+        color: #fff;
+        border: 1px solid #333;
+
+        i.ti-heart-filled { color: #e50914; }
+    }
 }
